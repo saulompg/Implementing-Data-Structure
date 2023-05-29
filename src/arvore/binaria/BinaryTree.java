@@ -152,7 +152,7 @@ public class BinaryTree {
 		
 		printRecursivePosOrder(root);
 
-	}
+	} 
 	
 	// PÓS ORDER - função que percorre a árvore de forma recursiva
 	private void printRecursivePosOrder(Node root) {

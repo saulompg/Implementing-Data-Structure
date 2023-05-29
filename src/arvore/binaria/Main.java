@@ -92,7 +92,7 @@ public class Main {
 		
 		sc.close();
 
-	}
+	} 
 	
 	public static int menu() {
 		

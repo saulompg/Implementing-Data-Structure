@@ -5,3 +5,4 @@
 * Lista
 * Fila
 * Pilha
+* Árvore Binária

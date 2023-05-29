@@ -29,7 +29,7 @@ public class Node {
 
 	public void setLeft(Node left) {
 		this.left = left;
-	}
+	} 
 
 	public Node getRight() {
 		return right;
