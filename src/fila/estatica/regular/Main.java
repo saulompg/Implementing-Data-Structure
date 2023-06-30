@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Main {
 	
+	static Scanner sc = new Scanner(System.in);
+	
 	static int screen() {
 
-		Scanner ler = new Scanner(System.in);
 		
 		System.out.printf("+-----------------------------------------+\n");
 		System.out.printf("+              FILA REGULAR               +\n");
@@ -20,7 +21,7 @@ public class Main {
 		System.out.printf("+-----------------------------------------+\n");
 		
 		System.out.printf("Escolha uma opção: ");
-		int answer = ler.nextInt();
+		int answer = sc.nextInt();
 		
 		System.out.println();
 		
@@ -31,13 +32,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		final int size = 5;
+		Fila fila = new Fila(size);
 		Object element;
 		
 		int exit = -1;
-		
-		Fila fila = new Fila(size);
-		Scanner ler = new Scanner(System.in);
-		
+				
 		while(exit != 0) {
 			
 			exit = screen();
@@ -47,56 +46,45 @@ public class Main {
 				case 0:
 					
 					System.out.println("Finalizando o programa");
-					
 					break;
 			
 				case 1:
 					
 					System.out.printf("Digite um valor: ");
-					element = ler.nextInt();
+					element = sc.nextInt();
 					fila.push(element);
-					
 					break;
 					
 				case 2:
 					
 					System.out.printf("Digite um valor: ");
-					element = ler.nextInt();
+					element = sc.nextInt();
 					fila.add(element);
-					
 					break;
 					
 				case 3:
 										
 					element = fila.remove();
 					
-					if(element != null)
-						
+					if(element != null)	
 						System.out.printf("Removendo --> [%s]", element.toString());
-					
 					else
-						
-						System.err.println("A fila está vazia");
-										
+						System.err.println("A fila está vazia");				
 					break;
 					
 				case 4:
 					
 					fila.clear();
-					
 					break;
-					
 					
 				case 5:
 					
 					fila.print();
-					
 					break;
 						
 				default:
 					
 					System.out.println("Opção inválida!");
-					
 					break;
 			
 			}
@@ -105,7 +93,7 @@ public class Main {
 			
 		}
 		
-		ler.close();
+		sc.close();
 		
 	}
 

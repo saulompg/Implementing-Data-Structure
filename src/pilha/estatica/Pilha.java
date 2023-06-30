@@ -41,13 +41,10 @@ public class Pilha {
 	public void push(Object element) {
 		
 		if(!isFull()) {
-		
 			lastElement++;
 			arr[lastElement] = element;
-		
 		} else
-			
-			System.err.printf("Não foi possível adicionar o elemento %s \n", element.toString());
+			System.err.printf("A pilha está cheia! \n");
 		
 	}
 	
@@ -57,10 +54,8 @@ public class Pilha {
 		Object element = null;
 
 		if(!isEmpty()) {
-		
 			element = arr[lastElement];
 			lastElement--;
-
 		}
 			
 		return element;
@@ -71,13 +66,10 @@ public class Pilha {
 	public void clear() {
 		
 		if(!isEmpty())
-			
 			for(int i = lastElement; i >= 0; i--)
-				System.out.printf("O elemento [%s] foi removido da pilha\n", this.pop().toString());
-			
+				System.out.printf("O elemento [%s] foi removido da pilha \n", this.pop().toString());
 		else
-			
-			System.err.printf("A pilha está vazia!\n");
+			System.err.printf("A pilha está vazia! \n");
 		
 	}
 	
@@ -85,13 +77,10 @@ public class Pilha {
 	public void print() {
 		
 		if(!isEmpty())
-			
 			for(int i = lastElement; i >= 0; i--)
-				System.out.printf("[%d] -> [%s]\n", i, arr[i].toString());
-			
+				System.out.printf("[%d] -> [%s] \n", i, arr[i].toString());
 		else
-			
-			System.err.printf("A pilha está vazia!\n");
+			System.err.printf("A pilha está vazia! \n");
 		
 	}
 	

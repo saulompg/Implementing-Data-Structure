@@ -3,11 +3,12 @@ package pilha.estatica;
 import java.util.Scanner;
 
 public class Main {
+
+	// instanciando o objeto para a entrada de dados
+	static Scanner sc = new Scanner(System.in);
 	
 	// Menu interativo
 	static int menu() {
-
-		Scanner ler = new Scanner(System.in);
 		
 		System.out.printf("+-------------------------+\n");
 		System.out.printf("+      PILHA ESTÁTICA     +\n");
@@ -20,21 +21,20 @@ public class Main {
 		System.out.printf("+-------------------------+\n");
 		
 		System.out.printf("Escolha uma opção: ");
-		int answer = ler.nextInt();
+		int answer = sc.nextInt();
 		
 		return answer;
 		
 	}
 
+	// Método principal
 	public static void main(String[] args) {
 		
-		// Declara e Inicia as variáveis
+		// Declara e inicializa as variáveis
 		int maxSize = 5;
-		int exit = -1;		
-		Object value;
-		
 		Pilha pilha = new Pilha(maxSize);
-		Scanner ler = new Scanner(System.in);
+		Object value;
+		int exit = -1;		
 		
 		// Mantém o programam rodando em loop até que a opção 0 (SAIR) seja informada
 		while(exit != 0) {
@@ -44,51 +44,47 @@ public class Main {
 
 			switch(exit) {
 			
+				// caso a opção 0 seja digitada, o laço é finalizado
 				case 0:
-				
-					System.out.println("Finalizando o programa");
 					
+					System.out.println("Finalizando o programa");
 					break;
 				
+				// insere um elemento na pilha
 				case 1:
 					
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
+					value = sc.nextInt();
 					pilha.push(value);
-					
 					break;
 					
+				// remove um elemento da pilha
 				case 2:
 					
 					Object element = pilha.pop();
 					
 					if(element != null)
-						
 						System.out.printf("O elemento [%s] foi removido da pilha\n", element.toString());
-					
 					else
-						
 						System.err.println("A pilha está vazia!");
-					
 					break;
 					
+				// limpa a pilha
 				case 3:
 					
 					pilha.clear();
-					
 					break;
 					
-					
+				// imprime os elementos da pilha
 				case 4:
 					
 					pilha.print();
-					
 					break;
 					
+				// caso seja informada uma opção inválida
 				default:
 					
 					System.err.println("Opção inválida!");
-					
 					break;
 			
 			}
@@ -97,7 +93,7 @@ public class Main {
 			
 		}
 
-		ler.close();
+		sc.close();
 		
 	}
 

@@ -2,11 +2,11 @@ package arvore.binaria;
 
 public class Node {
 
-//	ATRIBUTOS
+	// ATRIBUTOS
 	private int value;
 	private Node left, right;
 	
-//	CONSTRUTOR
+	// CONSTRUTOR
 	public Node(int value) {
 		
 		this.value = value;
@@ -14,7 +14,7 @@ public class Node {
 		
 	}
 
-//	GETTERS E SETTERS
+	// GETTERS E SETTERS
 	public int getValue() {
 		return value;
 	}

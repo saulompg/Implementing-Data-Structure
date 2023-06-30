@@ -3,10 +3,11 @@ package lista.estatica;
 import java.util.Scanner;
 
 public class Main {
+
+	// instanciando o objeto para a entrada de dados
+	static Scanner sc = new Scanner(System.in);
 	
 	static int screen() {
-
-		Scanner ler = new Scanner(System.in);
 		
 		System.out.printf("+-----------------------------------------+\n");
 		System.out.printf("+             LISTA ESTÁTICA              +\n");
@@ -29,7 +30,7 @@ public class Main {
 		System.out.printf("+-----------------------------------------+\n");
 		
 		System.out.printf("Escolha uma opção: ");
-		int answer = ler.nextInt();
+		int answer = sc.nextInt();
 		
 		System.out.println();
 		
@@ -39,16 +40,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		// variáveis
 		final int fullSize = 5;
-		
+		Lista list = new Lista(fullSize);
 		int value;
 		
 		int exit = -1;
 		
-		Lista list = new Lista(fullSize);
-		
-		Scanner ler = new Scanner(System.in);
-		
+		// executa o programa enquanto a opção 0 não é selecionada no menu
 		while(exit != 0) {
 			
 			exit = screen();
@@ -56,85 +55,85 @@ public class Main {
 			
 			switch(exit) {
 			
+				// finaliza o programa
+				case 0:
+					
+					System.out.println("Finalizando o programa\n");
+					break;
+				
+				// insere um elemento no inicio da lista
 				case 1:
 					
 					System.out.println("Inserindo elemento no inicio da lista");
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
+					value = sc.nextInt();
 					list.add(value);
-					
 					break;
 					
+				// insere um elemento no final da lista
 				case 2:
 					
 					System.out.println("Inserindo elemento no final da lista");
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
+					value = sc.nextInt();
 					list.push(value);
-					
 					break;
 					
+				// remove um elemento no inicio da lista
 				case 3:
 					
 					System.out.println("Removendo elemento da primeira posição");
 					list.remove();
-					
 					break;
 					
+				// remove um elemento no final da lista
 				case 4:
 					
 					System.out.println("Removendo elemento da última posição");
 					list.pop();
-					
 					break;
 					
+				// imprime os elementos da lista
 				case 5:
 					
 					System.out.println("Imprimindo os elementos da lista");
 					list.print();
-					
 					break;
 
+				// imprime os elementos em ordem inversa
 				case 6:
 					
 					System.out.println("Imprimindo lista em ordem inversa");
 					list.printReverseList();
-					
 					break;
 					
+				// pesquisa por um elemento na lista
 				case 7:
 					
 					System.out.println("Pesquisar por um elemento");
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
+					value = sc.nextInt();
 					list.search(value);
-					
 					break;
 					
+				// ordena os elementos pelo método da inserção
 				case 8:
 					
 					System.out.println("Ordenando lista pelo método da inserção");
 					list.sortInsertion();
-					
 					break;
 					
+				// ordena os elementos pelo método da seleção
 				case 9:
 					
 					System.out.println("Ordenando lista pelo método da seleção");
 					list.sortSelection();
-					
 					break;
-					
-				case 0:
-					
-					System.out.println("Finalizando o programa\n");
-					
-					break;
-					
+				
+				// caso seja selecionada uma opção inválida
 				default:
 					
 					System.out.println("Opção inválida!");
-					
 					break;
 			
 			}
@@ -143,7 +142,7 @@ public class Main {
 			
 		}
 		
-		ler.close();
+		sc.close();
 		
 	}
 

@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Main {
 	
+	// instanciando o objeto para a entrada de dados
+	static Scanner sc = new Scanner(System.in);
+	
 	// Menu interativo
 	static int menu() {
-		
-		Scanner ler = new Scanner(System.in);
 		
 		System.out.printf("+-------------------------+\n");
 		System.out.printf("+      PILHA DINÂMICA     +\n");
@@ -20,7 +21,7 @@ public class Main {
 		System.out.printf("+-------------------------+\n");
 		
 		System.out.printf("Escolha uma opção: ");
-		int answer = ler.nextInt();
+		int answer = sc.nextInt();
 		
 		System.out.println();
 		
@@ -28,14 +29,14 @@ public class Main {
 		
 	}
 
+	// método principal
 	public static void main(String[] args) {
 		
 		// Declara e Inicia as variáveis
-		int exit = -1;		
-		Object value;
-		
 		Pilha pilha = new Pilha();
-		Scanner ler = new Scanner(System.in);
+		Object value;
+
+		int exit = -1;		
 		
 		// Mantém o programam rodando em loop até que a opção 0 (SAIR) seja informada
 		while(exit != 0) {
@@ -44,52 +45,47 @@ public class Main {
 			
 			switch(exit) {
 			
+				// finaliza o programa
 				case 0:
-				
-					System.out.println("Finalizando o programa");
 					
+					System.out.println("Finalizando o programa");
 					break;
 				
+				// insere um elemento na pilha
 				case 1:
 					
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
+					value = sc.nextInt();
 					pilha.push(value);
-					
 					break;
 					
+				// remove um elemento da pilha
 				case 2:
 					
 					Object element = pilha.pop();
 					
 					if(element != null)
-						
 						System.out.printf("Removendo --> [%s]\n", element.toString());
-					
 					else
-						
 						System.err.println("A pilha está vazia!");
-					
-					
 					break;
 					
+				// limpa a pilha
 				case 3:
 					
 					pilha.clear();
-					
 					break;
 					
-					
+				// imprime os elementos da pilha
 				case 4:
 					
 					pilha.print();
-					
 					break;
 					
+				// caso uma opção inválida seja digitada
 				default:
 					
 					System.err.println("Opção inválida!");
-					
 					break;
 			
 			}
@@ -98,7 +94,7 @@ public class Main {
 			
 		}
 
-		ler.close();
+		sc.close();
 		
 	}
 

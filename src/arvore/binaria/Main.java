@@ -7,24 +7,27 @@ public class Main {
 	// instanciando o objeto para a entrada de dados
 	static Scanner sc = new Scanner(System.in);
 
+	// MÉTODO PRINCIPAL
 	public static void main(String[] args) {
 		
-//		DECLARAÇÃO DE VARIÁVEIS
+		// DECLARAÇÃO DE VARIÁVEIS
 		BinaryTree tree = new BinaryTree();
 		int value;
 		int exit = -1;
 		
-//		EXIBIÇÃO 
+		// EXIBIÇÃO 
 		while(exit != 0) {
 			
 			exit = menu();
 			
 			switch(exit) {
 			
+			// caso a opção 0 seja digitada, o laço é finalizado
 			case 0:
 				System.out.println("Finalizando o programa");
 				break;
 			
+			// insere um elemento na árvore
 			case 1:
 				System.out.printf("> INSERIR ELEMENTO \n");
 				System.out.printf("insira o elemento: ");
@@ -32,13 +35,15 @@ public class Main {
 				tree.insert(value);
 				break;
 			
+			// remove um elemento da árvore
 			case 2:
 				System.out.printf("> REMOVER ELEMENTO \n");
 				System.out.printf("informe o elemento que será removido: ");
 				value = sc.nextInt();
 				tree.remove(value);
 				break;
-				
+			
+			// imprime os elementos da árvore
 			case 3:
 				System.out.printf("> IMPRIMIR ELEMENTOS - IN ORDER \n");
 				tree.printInOrder();
@@ -56,30 +61,35 @@ public class Main {
 				
 			case 6:
 				System.out.printf("> IMPRIMIR ELEMENTOS - IN NIVEL\n");
-				tree.printInNivel();
+				tree.printLevel();
 				break;
 				
+			// verifica se determinado elemento está inserido na árvore
 			case 7:
 				System.out.printf("> LOCALIZAR VALOR \n");
 				System.out.printf("insira o elemento: ");
 				value = sc.nextInt();
 				if(tree.contains(value))
-					System.out.println("O elemento está na árvore");
+					System.out.printf("Elemento encontrado \n");
 				else
-					System.out.println("O elemento não está na árvore");
+					System.out.printf("Elemento não encontrado \n");
 				break;
-	
+			
+			// identifica o pai de determinado elemento 
 			case 8:
 				System.out.printf("> LOCALIZAR PAI \n");
 				System.out.printf("insira o elemento: ");
 				value = sc.nextInt();
 				int temp = tree.findParent(value);
-				if(temp == -1)
-					System.out.printf("O elemento %d não possui pai.", value);
-				else
+				if(temp != -1)
 					System.out.printf("O pai do elemento %d é: %d \n", value, temp);
 				break;
 			
+			case 9:
+				tree.printInLevel();
+				break;
+				
+			// caso seja digitada uma opção inválida no menu
 			default:
 				System.err.printf("> OPÇÃO INVÁLIDA!");
 				break;
@@ -94,6 +104,7 @@ public class Main {
 
 	} 
 	
+	// MÉTODO PARA EXIBIR O MENU
 	public static int menu() {
 		
 		System.out.printf("+------------------------+ \n");

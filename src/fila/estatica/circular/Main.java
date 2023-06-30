@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Main {
 	
+	// instanciando o objeto para a entrada de dados
+	static Scanner sc = new Scanner(System.in);
+	
 	static int screen() {
 
-		Scanner ler = new Scanner(System.in);
-		
 		System.out.printf("+-----------------------------------------+\n");
 		System.out.printf("+              FILA CIRCULAR              +\n");
 		System.out.printf("+-----------------------------------------+\n");
@@ -20,7 +21,7 @@ public class Main {
 		System.out.printf("+-----------------------------------------+\n");
 		
 		System.out.printf("Escolha uma opção: ");
-		int answer = ler.nextInt();
+		int answer = sc.nextInt();
 		
 		System.out.println();
 		
@@ -30,12 +31,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Object value;
 		final int fullSize = 5;
-		int exit = -1;
-		
 		FilaCircular fila = new FilaCircular(fullSize);
-		Scanner ler = new Scanner(System.in);
+		Object value;
+
+		int exit = -1;
 		
 		while(exit != 0) {
 			
@@ -45,57 +45,46 @@ public class Main {
 			
 				case 0:
 					
-					System.out.println("Finalizando o programa\n");
-					
+					System.out.println("Finalizando o programa\n");					
 					break;
 				
 				case 1:
 					
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
-					fila.push(value);
-					
+					value = sc.nextInt();
+					fila.push(value);				
 					break;
 					
 				case 2:
 					
 					System.out.printf("Digite um valor: ");
-					value = ler.nextInt();
-					fila.add(value);
-					
+					value = sc.nextInt();
+					fila.add(value);			
 					break;
 					
 				case 3:
 					
 					Object element = fila.remove();
 					
-					if(element != null)
-						
-						System.out.printf("Removendo -> [%s]", element.toString());
-					
-					else
-						
-						System.out.println("A fila está vazia");
-					
+					if(element != null)					
+						System.out.printf("Removendo -> [%s]", element.toString());					
+					else						
+						System.out.println("A fila está vazia");					
 					break;
 					
 				case 4:
 					
-					fila.clear();
-					
+					fila.clear();					
 					break;
-					
-					
+				
 				case 5:
 					
-					fila.print();
-					
+					fila.print();					
 					break;
 					
 				default:
 					
-					System.err.println("Opção inválida!");
-					
+					System.err.println("Opção inválida!");					
 					break;
 			
 			}
@@ -104,7 +93,7 @@ public class Main {
 			
 		}
 		
-		ler.close();
+		sc.close();
 		
 	}
 
