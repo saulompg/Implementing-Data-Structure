@@ -1,4 +1,4 @@
-# data-structure
+# Implementando Estrutura de Dados
 
 > Estudo das Estruturas de Dados
 
